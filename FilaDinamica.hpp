@@ -64,12 +64,13 @@ bool dequeueFilad(Filad <T> &f, T &valor){
 }
 
 template <typename T>
-void liberarFilad(Filad <T> &f){
-    No <T> *aux = f.comeco;
+void liberarFilad(Filad <T> *f){
+    No <T> *aux = f->comeco;
     No <T> *aux2;
     while( aux != nullptr ){
         aux2 = aux;
         aux = aux->eloP;
         delete aux2;
     }
+    delete f;
 }

@@ -41,5 +41,7 @@ bool dequeueFilae(Filae <T> &f, T &valor){
 }
 
 template <typename T>
-void liberarFilae(Filae <T> f){
+void liberarFilae(Filae <T> *f){
+    delete[] f->vetor;
+    delete f;
 }

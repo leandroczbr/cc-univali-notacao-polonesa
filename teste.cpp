@@ -28,8 +28,8 @@ int main() {
     cout << "Popped value: " << valor << endl;
 
     cout << "Releasing the stack..." << endl;
-    liberarPilhae(p);
-    cout << "Stack released." << endl;
+    liberarPilhae(&p);
+    cout << "Stack released" << endl;
 
     // Add a separator for clarity
     cout << "\n=============================\n" << endl;
@@ -54,8 +54,8 @@ int main() {
     cout << "Dequeued value: " << valorFila << endl;
 
     cout << "Releasing the queue..." << endl;
-    liberarFilae(f);
-    cout << "Queue released." << endl;
+    liberarFilae(&f);
+    cout << "Queue released" << endl;
 
     // Add a separator for clarity
     cout << "\n=============================\n" << endl;
@@ -80,8 +80,8 @@ int main() {
     cout << "Popped value: " << valorPilhad << endl;
 
     cout << "Releasing the dynamic stack..." << endl;
-    liberarPilhad(pd);
-    cout << "Dynamic stack released." << endl;
+    liberarPilhad(&pd);
+    cout << "Dynamic stack released" << endl;
 
     // Add a separator for clarity
     cout << "\n=============================\n" << endl;
@@ -106,8 +106,8 @@ int main() {
     cout << "Dequeued value: " << valorFilad << endl;
 
     cout << "Releasing the dynamic queue..." << endl;
-    liberarFilad(fd);
-    cout << "Dynamic queue released." << endl;
+    liberarFilad(&fd);
+    cout << "Dynamic queue released"<< endl;
 
     return 0;
 }

@@ -47,6 +47,7 @@ bool topPilhae(Pilhae <T> &p, T &valor){
 }
 
 template <typename T>
-void liberarPilhae(Pilhae <T> p){
-
+void liberarPilhae(Pilhae <T> *p){
+    delete[] p->vetor;
+    delete p;
 }

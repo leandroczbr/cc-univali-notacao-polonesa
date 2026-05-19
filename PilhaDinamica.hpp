@@ -71,12 +71,13 @@ bool topPilhad(Pilhad <T> &p, T &valor){
 }
 
 template <typename T>
-void liberarPilhad(Pilhad <T> &p){
-    No <T> *aux = p.comeco;
+void liberarPilhad(Pilhad <T> *p){
+    No <T> *aux = p->comeco;
     No <T> *aux2;
     while( aux != nullptr ){
         aux2 = aux;
         aux = aux->eloP;
         delete aux2;
     }
+    delete p;
 }
