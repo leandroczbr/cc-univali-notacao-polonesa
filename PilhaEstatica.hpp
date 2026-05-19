@@ -3,49 +3,50 @@
 #endif
 
 template <typename T>
-struct Pilha{
+struct Pilhae{
     T vetor[TAM];
     int topo;
 };
 
 template <typename T>
-void inicializar(Pilha <T> &p){
+void inicializarPilhae(Pilhae <T> &p){
     p.topo = -1;
 }
 
 template <typename T>
-bool vazia(Pilha <T> p){
+bool vaziaPilhae(Pilhae <T> p){
     return (p.topo == -1) ? true : false;
 }
 
 template <typename T>
-bool cheia(Pilha <T> p){
+bool cheiaPilhae(Pilhae <T> p){
     return (p.topo == TAM-1) ? true : false;
 }
 
 template <typename T>
-bool push(Pilha <T> &p, T valor){
-    if( cheia(p) ) return false;
+bool pushPilhae(Pilhae <T> &p, T valor){
+    if( cheiaPilhae(p) ) return false;
     p.topo++;
     p.vetor[p.topo] = valor;
     return true;
 }
 
 template <typename T>
-bool pop(Pilha <T> &p, T &valor){
-    if( vazia(p) ) return false;
+bool popPilhae(Pilhae <T> &p, T &valor){
+    if( vaziaPilhae(p) ) return false;
     valor = p.vetor[p.topo];
     p.topo--;
     return true;
 }
 
 template <typename T>
-bool top(Pilha <T> &p, T &valor){
-    if( vazia(p) ) return false;
+bool topPilhae(Pilhae <T> &p, T &valor){
+    if( vaziaPilhae(p) ) return false;
     valor = p.vetor[p.topo];
     return true;
 }
 
 template <typename T>
-void liberar(Pilha <T> p){
+void liberarPilhae(Pilhae <T> p){
+
 }
