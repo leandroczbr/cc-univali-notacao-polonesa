@@ -1,35 +1,10 @@
-// ============================================================
 // UNIVALI - Escola Politecnica - Ciencia da Computacao
 // Disciplina: Estruturas de Dados
 // Trabalho 2 - Pilhas e Filas - Notacao Polonesa Invertida
 // Integrantes:
 //   - [SEU NOME AQUI]
 //   - [NOME DO PARCEIRO AQUI]
-// ============================================================
-//
-// ARQUIVOS DO PROJETO:
-//   No.hpp          -> Estrutura do no (usada nas versoes dinamicas)
-//   PilhaEstatica.hpp -> TAD Pilha com vetor (estatica)
-//   PilhaDinamica.hpp -> TAD Pilha com lista encadeada (dinamica)
-//   FilaEstatica.hpp  -> TAD Fila com vetor (estatica)
-//   FilaDinamica.hpp  -> TAD Fila com lista encadeada (dinamica)
-//   Expressao.hpp   -> Funcoes auxiliares (verificar char, calcular)
-//   Conversor.hpp   -> Converte expressao infixa para NPI
-//   Avaliador.hpp   -> Coleta variaveis e calcula o resultado
-//   main.cpp        -> Programa principal (fluxo da aplicacao)
-//
-// PARA TROCAR ENTRE ESTRUTURA DINAMICA E ESTATICA:
-//   1. Troque os #include abaixo (Dinamica <-> Estatica)
-//   2. Troque tambem os mesmos includes dentro de Conversor.hpp e Avaliador.hpp
-//   3. Troque os tipos e funcoes:
-//        Pilhad -> Pilhae     Filad -> Filae
-//        inicializarPilhad -> inicializarPilhae
-//        inicializarFilad  -> inicializarFilae
-//        pushPilhad -> pushPilhae    popPilhad -> popPilhae
-//        vaziaPilhad -> vaziaPilhae  topPilhad -> topPilhae
-//        queueFilad -> queueFilae    dequeueFilad -> dequeueFilae
-//        vaziaFilad -> vaziaFilae
-// ============================================================
+
 
 #include <iostream>
 #include <string>
