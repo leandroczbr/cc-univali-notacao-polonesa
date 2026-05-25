@@ -1,4 +1,4 @@
-#ifndef TAM
+
 #define TAM 50
 #endif
 
