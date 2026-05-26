@@ -5,6 +5,7 @@
 void coletarVariaveis(Filad<char> &fila, char variaveis[], int &totalVariaveis) {
     totalVariaveis = 0;
 
+    // Mesma logica da impressao
     Pilhad<char> temp;
     inicializarPilhad(temp);
 
@@ -12,15 +13,12 @@ void coletarVariaveis(Filad<char> &fila, char variaveis[], int &totalVariaveis) 
     inicializarPilhad(temp2);
 
     char c;
-
-    //tira da fila e vê cada elemento
     while (!vaziaFilad(fila)) {
         dequeueFilad(fila, c);
 
-        //se letra = variavel
-        if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
+        if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) { // verifica se valores são variaveis
 
-            // Verifica se essa variavel ja foi registrada antes
+            // verifica se já existe
             bool jaExiste = false;
             for (int i = 0; i < totalVariaveis; i++) {
                 if (variaveis[i] == c) {
@@ -29,8 +27,7 @@ void coletarVariaveis(Filad<char> &fila, char variaveis[], int &totalVariaveis) 
                 }
             }
 
-            //se for nova, adiciona na lista
-            if (!jaExiste) {
+            if (!jaExiste) { // Bota no total de variaveis
                 variaveis[totalVariaveis] = c;
                 totalVariaveis++;
             }
@@ -38,8 +35,7 @@ void coletarVariaveis(Filad<char> &fila, char variaveis[], int &totalVariaveis) 
 
         pushPilhad(temp, c);
     }
-
-    //mesmo coisa do imprimir
+    //// Apenas vira
     while (!vaziaPilhad(temp)) {
         popPilhad(temp, c);
         pushPilhad(temp2, c);
@@ -60,35 +56,30 @@ double avaliarNPI(Filad<char> &fila, char variaveis[], double valores[], int tot
     while (!vaziaFilad(fila)) {
         dequeueFilad(fila, c);
 
-        //digito numerico: converte para double e empilha
-        if (c >= '0' && c <= '9') {
-            double numero = c - '0';
+        if (c >= '0' && c <= '9') { // se numero
+            double numero = c - '0'; // char pra numero
             pushPilhad(pilhaNumeros, numero);
 
-        //se variavel: busca o valor informado pelo usuario e empilha
-        } else if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
+        } else if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {// se variavel
             double valorVar = 0;
             for (int i = 0; i < totalVariaveis; i++) {
                 if (variaveis[i] == c) {
-                    valorVar = valores[i];
+                    valorVar = valores[i]; /// substitui variavel pelo valor
                     break;
                 }
             }
             pushPilhad(pilhaNumeros, valorVar);
 
-        //operador: pega os dois ultimos valores, opera e empilha o resultado
-        } else if (ehOperador(c)) {
+        } else if (ehOperador(c)) { // Tira numeros da operacao, e resolve
             double b, a;
-            popPilhad(pilhaNumeros, b);  // b foi empilhado por ultimo (segundo operando)
-            popPilhad(pilhaNumeros, a);  // a foi empilhado antes (primeiro operando)
+            popPilhad(pilhaNumeros, b);
+            popPilhad(pilhaNumeros, a);
 
             double resultado = calcular(a, c, b);
             pushPilhad(pilhaNumeros, resultado);
         }
     }
-
-    //resultado final é oq sobrou na pilha
-    double resultado;
+    double resultado;///só vai restar o resultado
     popPilhad(pilhaNumeros, resultado);
     return resultado;
 }
